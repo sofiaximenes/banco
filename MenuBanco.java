@@ -43,6 +43,9 @@ public class MenuBanco {
                 case 5:
                     System.out.println("imprimindo contas criadas");
                     b.procurarConta(100);
+                case 6:
+                    System.out.println("Opção 6 selecionada: Aplicar investimento");
+                    b.investimentos(in)
                 case 0:
                     System.out.println("Saindo do programa. Obrigada!");
                     break;
