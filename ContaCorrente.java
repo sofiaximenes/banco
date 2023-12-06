@@ -11,7 +11,8 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
         if (getSaldo() >= valor) {
             setSaldo(getSaldo() - valor - taxaDeOperacao);
         } else {
-            System.out.println("Saldo insuficiente para efetuar o saque solicitado.");
+            throw new SaldoInsuficiente("Saldo insuficiente");
+            // System.out.println("Saldo insuficiente para efetuar o saque solicitado.");
         }
     }
 
@@ -33,7 +34,16 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
 
     public void mostrarDados() {
         System.out.println("--- Conta Corrente ---");
-        System.out.println("Número da Conta: " + getNumeroConta());
-        System.out.println("Saldo: R$" + getSaldo());
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "ContaCorrente{" +
+                "taxaDeOperacao=" + taxaDeOperacao +
+                ", numeroConta=" + numeroConta +
+                ", contaAtiva=" + contaAtiva +
+                ", saldo=" + saldo +
+                '}';
     }
 }

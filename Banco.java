@@ -11,6 +11,15 @@ public class Banco implements Imprimivel {
         contas.remove(conta);
     }
 
+    public int gerarNumeroConta(String tipo) {
+        if (tipo == "corrente") {
+            return 1000 + contas.size();
+        } else if (tipo == "poupanca") {
+            return 2000 + contas.size();
+        }
+        return 0;
+    }
+
     public ContaBancaria procurarConta(int numeroDaConta) {
         for (ContaBancaria conta : contas) {
             if (conta.getNumeroConta() == numeroDaConta) {
@@ -19,7 +28,12 @@ public class Banco implements Imprimivel {
         }
         return null;
     }
-   @Override
+
+    public ArrayList<ContaBancaria> getContas() {
+        return contas;
+    }
+
+    @Override
     public void mostrarDados() {
 
     }

@@ -1,9 +1,11 @@
 public abstract class ContaBancaria {
     int numeroConta;
+    boolean contaAtiva;
     double saldo;
 
     public ContaBancaria(int numeroConta, double saldo) {
         this.numeroConta = numeroConta;
+        this.contaAtiva = true;
         this.saldo = saldo;
     }
 
@@ -22,5 +24,12 @@ public abstract class ContaBancaria {
 
     protected void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public boolean isContaAtiva() {
+        return contaAtiva;
+    }
+    public void setContaAtiva(boolean contaAtiva) {
+        this.contaAtiva = contaAtiva;
     }
 }
