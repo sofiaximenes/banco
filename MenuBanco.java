@@ -6,11 +6,14 @@ public class MenuBanco {
         Scanner scanner = new Scanner(System.in);
         int escolha;
         int numConta;
+        double valor;
+
+        ContaBancaria conta;
 
         Banco b = new Banco();
 
+        System.out.println("Bem-vindo ao Banco da Sofia");
         do {
-            System.out.println("Bem-vindo ao Banco da Sofia");
             System.out.println("Selecione uma opção:");
             System.out.println("1. Criar conta Corrente");
             System.out.println("2. Criar conta Poupança");
@@ -46,9 +49,9 @@ public class MenuBanco {
                         System.out.println("Nenhuma conta cadastrada no banco");
                         break;
                     }
-                    for (ContaBancaria conta : contas) {
-                        if (conta.contaAtiva) {
-                            System.out.println(conta);
+                    for (ContaBancaria c : contas) {
+                        if (c.contaAtiva) {
+                            System.out.println(c);
                         }
                     }
                     break;
@@ -56,17 +59,24 @@ public class MenuBanco {
                     System.out.println("Opção 4 selecionada: Depositar");
                     System.out.print("Digite para qual conta você depositar: ");
                     numConta = scanner.nextInt();
-                    ContaBancaria conta = b.procurarConta(numConta);
+                    conta = b.procurarConta(numConta);
                     System.out.print("Digite quanto você quer depositar em reais, R$: ");
-                    double valor = scanner.nextDouble();
+                    valor = scanner.nextDouble();
                     conta.depositar(valor);
                     System.out.print("Valor depositado com sucesso");
                     break;
                 case 5:
-                    System.out.println("imprimindo contas criadas");
-                    b.procurarConta(100);
+                    System.out.println("Opção 5 selecionada: Sacar");
+                    System.out.print("Digite de qual conta você quer sacar: ");
+                    numConta = scanner.nextInt();
+                    conta = b.procurarConta(numConta);
+                    System.out.print("Digite quanto você quer sacar em reais, R$: ");
+                    valor = scanner.nextDouble();
+                    conta.sacar(valor);
+                    break;
                 case 6:
                     System.out.println("Opção 6 selecionada: Aplicar investimento");
+                    break;
                 case 0:
                     System.out.println("Saindo do programa. Obrigada!");
                     break;

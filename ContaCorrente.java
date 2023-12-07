@@ -8,11 +8,15 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
 
     @Override
     public void sacar(double valor) {
-        if (getSaldo() >= valor) {
-            setSaldo(getSaldo() - valor - taxaDeOperacao);
-        } else {
-            throw new SaldoInsuficiente("Saldo insuficiente");
-            // System.out.println("Saldo insuficiente para efetuar o saque solicitado.");
+        try {
+            if (getSaldo() >= valor) {
+                setSaldo(getSaldo() - valor - taxaDeOperacao);
+                System.out.println("Valor sacado com sucesso!");
+            } else {
+                throw new SaldoInsuficiente("Saldo insuficiente");
+            }
+        } catch (SaldoInsuficiente e) {
+            System.out.println(e);
         }
     }
 
