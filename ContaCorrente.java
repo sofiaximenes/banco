@@ -2,22 +2,19 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
     private double taxaDeOperacao;
 
     public ContaCorrente(int numeroConta, double saldo) {
-        super(numeroConta, saldo);
+        super(numeroConta);
         this.taxaDeOperacao = taxaDeOperacao;
     }
 
     @Override
-    public void sacar(double valor) {
-        try {
-            if (getSaldo() >= valor) {
-                setSaldo(getSaldo() - valor - taxaDeOperacao);
-                System.out.println("Valor sacado com sucesso!");
-            } else {
-                throw new SaldoInsuficiente("Saldo insuficiente");
-            }
-        } catch (SaldoInsuficiente e) {
-            System.out.println(e);
+    public void sacar(double valor) throws SaldoInsuficiente {
+        if (getSaldo() >= valor) {
+            setSaldo(getSaldo() - valor - taxaDeOperacao);
+            System.out.println("Valor sacado com sucesso!");
+        } else {
+            throw new SaldoInsuficiente("Saldo insuficiente");
         }
+
     }
 
     @Override
@@ -28,7 +25,12 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
     @Override
     public void transferir(double valor, ContaBancaria conta) {
         if (this.getSaldo() >= valor) {
-            this.sacar(valor);
+            try {
+                this.sacar(valor);
+            }
+            catch (SaldoInsuficiente e) {
+                System.out.println(e);
+            }
             conta.depositar(valor);
             System.out.println("Transferência de R$" + valor + " realizada com sucesso.");
         } else {

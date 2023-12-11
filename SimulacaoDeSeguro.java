@@ -1,3 +1,3 @@
 public interface SimulacaoDeSeguro {
-    void simularSeguros();
+    void simularSeguro();
 }

@@ -20,14 +20,17 @@ public class Banco implements Imprimivel {
         return 0;
     }
 
-    public ContaBancaria procurarConta(int numeroDaConta) {
+    public ContaBancaria procurarConta(int numeroDaConta) throws ContaInexistente {
         for (ContaBancaria conta : contas) {
             if (conta.getNumeroConta() == numeroDaConta) {
                 return conta;
             }
         }
-        return null;
+//        System.out.println("Conta inexistente. Favor digitar nº de conta ativa.");
+        throw new ContaInexistente("A conta digitada não existe.");
     }
+
+
 
     public ArrayList<ContaBancaria> getContas() {
         return contas;

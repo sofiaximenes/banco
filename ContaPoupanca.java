@@ -9,10 +9,9 @@ public class ContaPoupanca extends ContaBancaria implements Imprimivel{
         this.limite = limite;
     }
 
-    public ContaPoupanca(int numeroConta, double saldo, double limite){
+    public ContaPoupanca(int numeroConta, double saldo, double limite) {
         super(numeroConta, saldo);
         this.limite = limite;
-
     }
 
     @Override
@@ -42,9 +41,17 @@ public class ContaPoupanca extends ContaBancaria implements Imprimivel{
 
     public void mostrarDados() {
         System.out.println("--- Conta Poupança ---");
-        System.out.println("Número da Conta: " + getNumeroConta());
-        System.out.println("Saldo: R$" + getSaldo());
-        System.out.println("Crédito: R$" + this.limite);
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "ContaPoupanca{" +
+                "limite=" + limite +
+                ", numeroConta=" + numeroConta +
+                ", contaAtiva=" + contaAtiva +
+                ", saldo=" + saldo +
+                '}';
     }
 }
 
