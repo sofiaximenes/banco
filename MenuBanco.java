@@ -2,6 +2,9 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
+
 public class MenuBanco {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -83,7 +86,7 @@ public class MenuBanco {
                         System.out.print("Digite quanto você quer sacar em reais, R$: ");
                         valor = scanner.nextDouble();
                         try {
-                            conta.sacar(valor);
+                            conta.sacar(conta.getNumeroConta(), valor);
                         }
                         catch (SaldoInsuficiente e) {
                             System.out.println(e);

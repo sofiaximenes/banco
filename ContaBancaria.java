@@ -9,7 +9,7 @@ public abstract class ContaBancaria {
         this.saldo = saldo;
     }
 
-    public abstract void sacar(double valor) throws SaldoInsuficiente;
+    public abstract void sacar(int conta, double valor) throws SaldoInsuficiente;
 
     public abstract void depositar(double valor);
     public abstract void transferir(double valor, ContaBancaria conta);

@@ -15,7 +15,7 @@ public class ContaPoupanca extends ContaBancaria implements Imprimivel{
     }
 
     @Override
-    public void sacar(double valor) {
+    public void sacar(int conta, double valor) {
         if (getSaldo() + limite >= valor){
             setSaldo(getSaldo() - valor);
         } else {
@@ -31,7 +31,7 @@ public class ContaPoupanca extends ContaBancaria implements Imprimivel{
     @Override
     public void transferir(double valor, ContaBancaria conta) {
         if (this.getSaldo() >= valor) {
-            this.sacar(valor);
+            this.sacar(conta.getNumeroConta(), valor);
             conta.depositar(valor);
             System.out.println("Transferência de R$" + valor + " realizada com sucesso.");
         } else {
