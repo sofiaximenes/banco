@@ -1,16 +1,16 @@
 public class EmprestimoEstudantil extends Emprestimo implements SimulacaoDeEmprestimo {
 
     @Override
-    public double solicitar(double saldo) {
+    public double solicitar(double saldo, double valorRequisitado) {
         if (saldo == 0) {
             System.out.println("Empréstimo não autorizado.");
             return 0;
         } else if (saldo > 0 && saldo <= 500) {
-            return saldo * 0.5;
+            return valorRequisitado * 1;
         } else if (saldo > 500 && saldo <= 1000) {
-            return saldo * 0.2;
+            return valorRequisitado * 0.5;
         } else if (saldo > 1000) {
-            return saldo * 0.1;
+            return valorRequisitado * 0.2;
         }
         return 0;
     }

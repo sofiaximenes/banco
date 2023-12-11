@@ -103,7 +103,9 @@ public class MenuBanco {
                         numConta = scanner.nextInt();
                         conta = b.procurarConta(numConta);
                         Emprestimo emprestimo = new EmprestimoEstudantil();
-                        double valorEmprestimo = emprestimo.solicitar(conta.getSaldo());
+                        System.out.print("Digite quanto você quer de empréstimo em reais, R$: ");
+                        double valorRequisitado = scanner.nextDouble();
+                        double valorEmprestimo = emprestimo.solicitar(conta.getSaldo(), valorRequisitado);
                         if (valorEmprestimo == 0) {
                             System.out.println("Empréstimo não aprovado.");
                         }
