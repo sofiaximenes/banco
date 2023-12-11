@@ -4,7 +4,7 @@ public class SeguroCarro extends Seguro implements SimulacaoDeSeguro {
     }
 
     public void simularSeguro () {
-        System.out.println("Iniciando a simução do seguro...");
+        System.out.println("Iniciando a simulação do seguro...");
     }
 
     @Override

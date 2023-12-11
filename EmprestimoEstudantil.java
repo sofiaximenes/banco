@@ -16,6 +16,6 @@ public class EmprestimoEstudantil extends Emprestimo implements SimulacaoDeEmpre
     }
 
     public void simularEmprestimo () {
-        System.out.println("Iniciando a simução do empréstimo...");
+        System.out.println("Iniciando a simulação do empréstimo...");
     }
 }
